@@ -9,6 +9,7 @@ import AdvisorLogin from "./components/advisor/advisorLogin";
 import AdvisorRegister from "./components/advisor/advisorRegister";
 import AdminLogin from "./components/admin/adminLogin";
 import Logout from "./components/student/logout";
+import AddCourse from "./components/addCourse";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               {/* All user logout */}
               <Route path="/logout" element={<Logout />} />
 
+              <Route path="/add-course" element={<AddCourse />} />
               <Route path="/course/:course_id" element={<CourseDetail />} />
           </Routes>
       </div>
