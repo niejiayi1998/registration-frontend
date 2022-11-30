@@ -23,6 +23,7 @@ const Navbar = () => {
                         </li>
 
                         {/* admin */}
+                        {!adminLoginStatus &&
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="src/components/boilerplates/navbar#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
@@ -37,11 +38,11 @@ const Navbar = () => {
                                 }
                                 <li><Link className="dropdown-item" to="/admin-dashboard">Dashboard</Link></li>
                                 {adminLoginStatus &&
-                                    <li><Link className="dropdown-item" to="/admin-logout">Logout</Link></li>
+                                    <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
                                 }
 
                             </ul>
-                        </li>
+                        </li>}
 
                         {/* advisor */}
                         <li className="nav-item dropdown">
@@ -58,7 +59,7 @@ const Navbar = () => {
                                 }
                                 <li><Link className="dropdown-item" to="/advisor-dashboard">Dashboard</Link></li>
                                 {advisorLoginStatus &&
-                                    <li><Link className="dropdown-item" to="/advisor-logout">Logout</Link></li>
+                                    <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
                                 }
 
                             </ul>
@@ -79,7 +80,7 @@ const Navbar = () => {
                                 }
                                 <li><Link className="dropdown-item" to="/student-dashboard">Dashboard</Link></li>
                                 {studentLoginStatus &&
-                                    <li><Link className="dropdown-item" to="/student-logout">Logout</Link></li>
+                                    <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
                                 }
                             </ul>
                         </li>

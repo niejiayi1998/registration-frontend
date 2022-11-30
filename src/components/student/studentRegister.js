@@ -2,28 +2,19 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
+// const baseUrl = 'http://127.0.0.1:8000/api'
 
 const StudentRegister = () => {
-    const [grades, setGrades] = useState([]);
     const [studentData, setStudentData] = useState({
         full_name: "",
         email: "",
         password: "",
-        grade: "",
         GPA: "",
         status: "",
     });
 
     useEffect(() => {
         document.title='Student Register';
-        try {
-            axios.get(`${baseUrl}/grade`)
-                .then((res) => {
-                    setGrades(res.data)
-                })
-        } catch (e) {
-            console.log(e)
-        }
     }, []);
 
     const handleChange = (e) => {
@@ -38,16 +29,16 @@ const StudentRegister = () => {
         studentFormData.append("full_name", studentData.full_name);
         studentFormData.append("email", studentData.email);
         studentFormData.append("password", studentData.password);
-        studentFormData.append("grade", studentData.grade);
         studentFormData.append("GPA", studentData.GPA);
         try {
             console.log(studentData)
-            axios.post(`${baseUrl}/student/`, studentFormData).then((response) => {
+            console.log(studentFormData)
+            axios.post(`${baseUrl}/student/`, studentFormData)
+                .then((response) => {
                 setStudentData({
                     full_name: "",
                     email: "",
                     password: "",
-                    grade: "",
                     GPA: "",
                     status: "success"
                 })
@@ -83,15 +74,6 @@ const StudentRegister = () => {
                                 <label htmlFor="password" className="form-label">Password</label>
                                 <input value={studentData.password} type="password" onChange={handleChange} name="password" className="form-control" id="password" />
                             </div>
-
-                            <div className="mb-3">
-                                <label htmlFor="grade" className="form-label">Grade</label>
-                                <select onChange={handleChange} name="grade" className="form-control" id="grade">
-                                    <option key="0">------- Please Select -------</option>
-                                    {grades.map((g, index) => <option key={index} value={g.id}>{g.title}</option>)}
-                                </select>
-                            </div>
-
 
                             <div className="mb-3">
                                 <label htmlFor="GPA" className="form-label">GPA</label>
