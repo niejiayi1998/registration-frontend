@@ -5,6 +5,17 @@ const Navbar = () => {
     const advisorLoginStatus = localStorage.getItem("advisorLoginStatus");
     const studentLoginStatus = localStorage.getItem("studentLoginStatus");
 
+    let currentUser = null;
+    if (adminLoginStatus) {
+        currentUser = "admin";
+    } else if (advisorLoginStatus) {
+        currentUser = "advisor";
+    } else if (studentLoginStatus) {
+        currentUser = "student";
+    }
+
+    const users = ["admin", "advisor", "student"];
+
     return (
         <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
             <div className="container">
@@ -22,68 +33,37 @@ const Navbar = () => {
                             <Link className="nav-link" to="/all-courses">Courses</Link>
                         </li>
 
-                        {/* admin */}
-                        {!adminLoginStatus &&
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="src/components/boilerplates/navbar#" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Admin
-                            </a>
-                            <ul className="dropdown-menu">
-                                {!adminLoginStatus &&
-                                    <>
-                                        <li><Link className="dropdown-item" to="/admin-login">Login</Link></li>
-                                        <li><Link className="dropdown-item" to="/admin-register">Register</Link></li>
-                                    </>
-                                }
-                                <li><Link className="dropdown-item" to="/admin-dashboard">Dashboard</Link></li>
-                                {adminLoginStatus &&
+                        {
+                            currentUser &&
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle text-capitalize" href="src/components/boilerplates/navbar#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    {currentUser}
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li><Link className="dropdown-item" to={`/${currentUser}-dashboard`}>Dashboard</Link></li>
                                     <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
-                                }
+                                </ul>
+                            </li>
+                        }
 
-                            </ul>
-                        </li>}
-
-                        {/* advisor */}
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="src/components/boilerplates/navbar#" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Advisor
-                            </a>
-                            <ul className="dropdown-menu">
-                                {!advisorLoginStatus &&
-                                    <>
-                                        <li><Link className="dropdown-item" to="/advisor-login">Login</Link></li>
-                                        <li><Link className="dropdown-item" to="/advisor-register">Register</Link></li>
-                                    </>
-                                }
-                                <li><Link className="dropdown-item" to="/advisor-dashboard">Dashboard</Link></li>
-                                {advisorLoginStatus &&
-                                    <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
-                                }
-
-                            </ul>
-                        </li>
-
-                        {/* student */}
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="src/components/boilerplates/navbar#" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Student
-                            </a>
-                            <ul className="dropdown-menu">
-                                {!studentLoginStatus &&
-                                    <>
-                                        <li><Link className="dropdown-item" to="/student-login">Login</Link></li>
-                                        <li><Link className="dropdown-item" to="/student-register">Register</Link></li>
-                                    </>
-                                }
-                                <li><Link className="dropdown-item" to="/student-dashboard">Dashboard</Link></li>
-                                {studentLoginStatus &&
-                                    <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
-                                }
-                            </ul>
-                        </li>
+                        {
+                            !currentUser &&
+                            <>
+                                {users.map((u, index) =>
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle text-capitalize" href="src/components/boilerplates/navbar#" role="button" data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            {u}
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li><Link className="dropdown-item" to={`${u}-login`}>Login</Link></li>
+                                            <li><Link className="dropdown-item" to={`${u}-register`}>Register</Link></li>
+                                        </ul>
+                                    </li>
+                                )}
+                            </>
+                        }
                     </ul>
                 </div>
             </div>
