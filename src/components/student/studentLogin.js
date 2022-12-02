@@ -32,7 +32,7 @@ const StudentLogin = () => {
                     if (res.data.bool) {
                         localStorage.setItem("studentLoginStatus", true);
                         localStorage.setItem("studentId", res.data.student_id)
-                        window.location.href = "/student-dashboard"
+                        window.location.href = "/dashboard"
                     } else {
                         setErrorMsg('Invalid Email Or Password!')
                     }

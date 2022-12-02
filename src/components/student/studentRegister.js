@@ -49,6 +49,11 @@ const StudentRegister = () => {
         }
     }
 
+    const studentLoginStatus = localStorage.getItem("studentLoginStatus");
+    if (studentLoginStatus) {
+        window.location.href = "/dashboard"
+    }
+
 
     return (
         <div className="container mt-4">

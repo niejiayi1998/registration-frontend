@@ -32,7 +32,7 @@ const AdvisorLogin = () => {
                     if (res.data.bool) {
                         localStorage.setItem("advisorLoginStatus", true);
                         localStorage.setItem("advisorId", res.data.advisor_id)
-                        window.location.href = "/advisor-dashboard"
+                        window.location.href = "/dashboard"
                     } else {
                         setErrorMsg('Invalid Email Or Password!')
                     }
@@ -44,7 +44,7 @@ const AdvisorLogin = () => {
 
     const advisorLoginStatus = localStorage.getItem("advisorLoginStatus");
     if (advisorLoginStatus) {
-        window.location.href = "/advisor-dashboard"
+        window.location.href = "/dashboard"
     }
 
     return (

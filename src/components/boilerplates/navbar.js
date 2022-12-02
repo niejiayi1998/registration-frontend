@@ -41,7 +41,7 @@ const Navbar = () => {
                                     {currentUser}
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to={`/${currentUser}-dashboard`}>Dashboard</Link></li>
+                                    <li><Link className="dropdown-item" to={`/dashboard`}>Dashboard</Link></li>
                                     <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
                                 </ul>
                             </li>
