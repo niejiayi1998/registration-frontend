@@ -51,7 +51,7 @@ const AddCourse = () => {
         <div className="container mt-4">
             <div className="row">
                 {/*<aside className="col-md-3">*/}
-                {/*    <TeacherSidebar />*/}
+                {/*    <AdminSidebar />*/}
                 {/*</aside>*/}
                 <section className="col-md-9">
                     <div className="card">
