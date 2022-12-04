@@ -46,7 +46,7 @@ function App() {
               {/* Admin dashboard route */}
               <Route path="/add-course" element={<AddCourse />} />
               <Route path="/edit-course/:course_id" element={<EditCourse />} />
-              <Route path="/add-section/:course_id" element={<AddSection />} />
+              <Route path="/add-section" element={<AddSection />} />
               <Route path="/edit-section/:section_id" element={<EditSection />} />
 
               {/* Advisor dashboard route */}
