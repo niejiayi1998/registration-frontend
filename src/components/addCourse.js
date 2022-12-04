@@ -35,7 +35,7 @@ const AddCourse = () => {
         formData.append("department", courseData.department);
         formData.append("name", courseData.name);
         formData.append("credit", courseData.credit);
-        console.log(courseData);
+
         try {
             axios.post(baseUrl + "/course/", formData)
                 .then((res) => {
