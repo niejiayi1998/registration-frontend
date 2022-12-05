@@ -2,7 +2,7 @@ import {Link, useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-const baseUrl = 'http://127.0.0.1:8000/api';
+const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 const currentTerm = 1;
 
 function AdvisorCourseSections(){
