@@ -98,7 +98,7 @@ const Ticket = () => {
                                     {
                                         tickets.map(t =>
                                             <tr key={t.id}>
-                                                <td>{t.student_id}</td>
+                                                <td>{t.student}</td>
                                                 <td>{t.student_name}</td>
                                                 <td>{t.request}</td>
                                                 <td>{t.course_name}</td>

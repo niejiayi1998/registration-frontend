@@ -1,5 +1,6 @@
 import Message from "./message";
 import AdminSidebar from "./admin/adminSidebar";
+import StudentMessage from "./studentMessage";
 
 const Dashboard = () => {
     const adminLoginStatus = localStorage.getItem("adminLoginStatus");
@@ -16,8 +17,9 @@ const Dashboard = () => {
                     {adminLoginStatus && <AdminSidebar />}
                 </aside>
                 <section className="col col-md-9">
-                    <h3>Welcome {adminLoginStatus && 'Admin'}{advisorLoginStatus && 'Advisor'}{studentLoginStatus && 'Student'}</h3>
-                    {studentLoginStatus && <Message />}
+                    <h3>Welcome To {adminLoginStatus && 'Admin'}{advisorLoginStatus && 'Advisor'}{studentLoginStatus && 'Student'} Dashboard !</h3>
+                    <hr className="border border-3 border-danger" />
+                    {studentLoginStatus && <StudentMessage />}
                 </section>
             </div>
         </div>
