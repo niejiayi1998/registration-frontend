@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
+import AdvisorSidebar from "./advisorSidebar";
 
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api';
 
@@ -51,6 +52,7 @@ const EditAdvisorProfile = () => {
         <div className="container mt-4">
             <div className="row">
                 <aside className="col-md-3">
+                    <AdvisorSidebar />
                 </aside>
                 <section className="col-md-9">
                     <div className="card">
