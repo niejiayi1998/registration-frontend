@@ -1,4 +1,3 @@
-import Message from "./message";
 import AdminSidebar from "./admin/adminSidebar";
 import StudentMessage from "./studentMessage";
 import studentSideBar from "./student/studentSideBar";

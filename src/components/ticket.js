@@ -31,12 +31,33 @@ const Ticket = () => {
                         historyFormData.append("student", ticket.student);
                         historyFormData.append("section", ticket.section);
                         historyFormData.append("status", 2);
-                        try {
-                            axios.post(`${baseUrl}/history/`, historyFormData)
-                                .then(res => {})
-                        } catch (e) {
-                            console.log(e);
+
+                        if (ticket.request === "ENROLL") {
+                            // approve student enroll
+                            try {
+                                axios.post(`${baseUrl}/history/`, historyFormData)
+                                    .then(res => {console.log("successfully create history")})
+                            } catch (e) {
+                                console.log(e);
+                            }
+                        } else if (ticket.request === "DROP") {
+                            // approve student drop & delete history
+                            try {
+                                axios.get(`${baseUrl}/find-historyId/${ticket.student}/${ticket.section}`)
+                                    .then((res) => {
+                                        const historyId = res.data.historyId;
+                                        try {
+                                            axios.delete(`${baseUrl}/history/${historyId}/`)
+                                                .then((res) => console.log("successfully delete hist"))
+                                        } catch (e) {
+                                            console.log(e)
+                                        }
+                                    })
+                            } catch (e) {
+                                console.log(e);
+                            }
                         }
+
 
                         const newTickets = tickets.filter(t => t !== ticket);
                         setTickets(newTickets);
