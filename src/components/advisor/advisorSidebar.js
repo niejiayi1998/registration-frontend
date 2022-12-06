@@ -8,7 +8,10 @@ function AdvisorSidebar(){
                 <Link to="/dashboard" className="list-group-item list-group-item-action">Dashboard</Link>
                 <Link to="/" className="list-group-item list-group-item-action">All Courses</Link>
                 <Link to="/advisor-edit-profile" className="list-group-item list-group-item-action">Profile Setting</Link>
-                <Link to="/all-students" className="list-group-item list-group-item-action">All Students</Link>
+                <Link to="/ticket" className="list-group-item list-group-item-action">Ticket</Link>
+                <Link to="/message" className="list-group-item list-group-item-action">Message</Link>
+
+
             </div>
         </div>
     )

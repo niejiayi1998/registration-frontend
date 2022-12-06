@@ -21,6 +21,8 @@ import MyCourse from "./components/myCourse";
 import EditAdminProfile from "./components/admin/editAdminProfile";
 import EditAdvisorProfile from "./components/advisor/editAdvisorProfile";
 import EditStudentProfile from "./components/student/editStudentProfile";
+import AllStudents from "./components/allStudents";
+import StudentDetail from "./components/student/studentDetail";
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
               <Route path="/student-login" element={<StudentLogin />} />
               <Route path="/student-register" element={<StudentRegister />} />
               <Route path="/student-edit-profile" element={<EditStudentProfile />} />
+              <Route path="/student/:student_id" element={<StudentDetail />} />
               {/* Advisor */}
               <Route path="/advisor-login" element={<AdvisorLogin />} />
               <Route path="/advisor-register" element={<AdvisorRegister />} />
@@ -41,6 +44,7 @@ function App() {
               <Route path="/admin-login" element={<AdminLogin />} />
               <Route path="/admin-register" element={<AdminRegister />} />
               <Route path="/admin-edit-profile" element={<EditAdminProfile />} />
+              <Route path="/all-students" element={<AllStudents />} />
 
               {/* All user logout */}
               <Route path="/logout" element={<Logout />} />

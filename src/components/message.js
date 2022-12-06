@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import AdvisorSidebar from "./advisor/advisorSidebar";
 
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 
@@ -65,9 +66,9 @@ const Message = () => {
     return (
         <div className="container mt-4">
             <div className="row">
-                {/*<aside className="col-md-3">*/}
-                {/*    <TeacherSidebar />*/}
-                {/*</aside>*/}
+                <aside className="col-md-3">
+                    <AdvisorSidebar />
+                </aside>
                 <section className="col-md-9">
                     <div className="card">
                         <h5 className="card-header">Message Student</h5>
