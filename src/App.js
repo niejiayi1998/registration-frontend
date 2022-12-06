@@ -17,8 +17,10 @@ import Message from "./components/message";
 import AddSection from "./components/addSection";
 import EditSection from "./components/editSection";
 import EditCourse from "./components/editCourse";
-import Profile from "./components/profile";
 import MyCourse from "./components/myCourse";
+import EditAdminProfile from "./components/admin/editAdminProfile";
+import EditAdvisorProfile from "./components/advisor/editAdvisorProfile";
+import EditStudentProfile from "./components/student/editStudentProfile";
 
 function App() {
   return (
@@ -30,17 +32,20 @@ function App() {
               {/* Student */}
               <Route path="/student-login" element={<StudentLogin />} />
               <Route path="/student-register" element={<StudentRegister />} />
+              <Route path="/student-edit-profile" element={<EditStudentProfile />} />
               {/* Advisor */}
               <Route path="/advisor-login" element={<AdvisorLogin />} />
               <Route path="/advisor-register" element={<AdvisorRegister />} />
+              <Route path="/advisor-edit-profile" element={<EditAdvisorProfile />} />
               {/* Admin */}
               <Route path="/admin-login" element={<AdminLogin />} />
               <Route path="/admin-register" element={<AdminRegister />} />
+              <Route path="/admin-edit-profile" element={<EditAdminProfile />} />
+
               {/* All user logout */}
               <Route path="/logout" element={<Logout />} />
 
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/edit-profile" element={<Profile />}/>
               <Route path="/course/:course_id" element={<CourseDetail />} />
 
               {/* Admin dashboard route */}

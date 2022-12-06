@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
+import AdminSidebar from "./admin/adminSidebar";
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 
 const EditSection = () => {
@@ -61,9 +62,9 @@ const EditSection = () => {
     return (
         <div className="container mt-4">
             <div className="row">
-                {/*<aside className="col-md-3">*/}
-                {/*    <TeacherSidebar />*/}
-                {/*</aside>*/}
+                <aside className="col-md-3">
+                    <AdminSidebar />
+                </aside>
                 <section className="col-md-9">
                     <div className="card">
                         <h5 className="card-header">Update Section</h5>
