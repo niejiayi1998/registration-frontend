@@ -6,6 +6,7 @@ function AdvisorSidebar(){
 
             <div className="list-group list-group-flush">
                 <Link to="/dashboard" className="list-group-item list-group-item-action">Dashboard</Link>
+                <Link to="/ticket" className="list-group-item list-group-item-action">Ticket</Link>
                 <Link to="/" className="list-group-item list-group-item-action">All Courses</Link>
                 <Link to="/advisor-edit-profile" className="list-group-item list-group-item-action">Profile Setting</Link>
                 <Link to="/ticket" className="list-group-item list-group-item-action">Ticket</Link>

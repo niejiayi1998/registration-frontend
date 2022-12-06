@@ -2,9 +2,10 @@ import AdminCourseSections from "./adminCourseSections";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
+import AdvisorCourseSections from "./advisorCourseSections";
+import StudentCourseSections from "./studentCourseSections";
 
-// const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
-const baseUrl = 'http://127.0.0.1:8000/api'
+const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 
 const CourseDetail = () => {
     const studentLoginStatus = localStorage.getItem('studentLoginStatus');
@@ -14,6 +15,7 @@ const CourseDetail = () => {
         name: "",
         description: "",
         credit: "",
+        department_name: ""
     });
     const {course_id} = useParams();
 
@@ -36,6 +38,8 @@ const CourseDetail = () => {
                 <div className='fw-bold mb-2'>Course Description : <span className='fw-normal'>{courseData.description}</span> </div>
                 <div className='fw-bold mb-2'>Department : <span className='fw-normal'>{courseData.department_name}</span></div>
                 {adminLoginStatus && <AdminCourseSections />}
+                {studentLoginStatus && <StudentCourseSections />}
+                {!adminLoginStatus && !studentLoginStatus && <AdvisorCourseSections /> }
             </div>
         </div>
     )

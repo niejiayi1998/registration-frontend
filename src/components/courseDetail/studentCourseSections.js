@@ -1,17 +1,25 @@
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import axios from "axios";
-import Swal from "sweetalert2";
 
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 const currentTerm = 1;
 
-function AdminCourseSections(){
+function StudentCourseSections(){
     const [sectionData, setSectionData] = useState([]);
     const [totalResult, settotalResult] = useState(1);
+    const [enrollStatus, setEnrollStatus] = useState(false);
     const {course_id} = useParams();
+    const studentId = localStorage.getItem("studentId");
 
     useEffect(()=>{
+        try {
+            axios.get(`${baseUrl}/fetch-enroll-status/${studentId}/${course_id}`)
+                .then(res => setEnrollStatus(res.data.bool));
+        } catch (e) {
+            console.log(e);
+        }
+
         try{
             axios.get(`${baseUrl}/course-sections/${course_id}/${currentTerm}`)
                 .then((res)=> {
@@ -23,33 +31,35 @@ function AdminCourseSections(){
         }
     }, []);
 
-    const handleDeleteClick = (section_id) => {
-        Swal.fire({
-            title:'Confirm',
-            text: 'Do yu want to Delete this?',
-            icon:'info',
-            confirmButtonText:'Continue',
-            showCancelButton: true,
-        }).then((result)=>{
-            if(result.isConfirmed){
-                try {
-                    axios.delete(baseUrl + '/section/' + section_id)
-                        .then((res) => {
-                            window.location.reload();
-                            // console.log(res);
-                            // settotalResult(res.data.length);
-                            // setchapterData(res.data);
-                        });
-                    Swal.fire('Success', 'Data has been deleted.');
-                } catch (error) {
-                    Swal.fire('error', 'Data has not been deleted. ');
+    const handleEnrollBtn = (sectionId) => {
+        let ticketExist = false;
+        try {
+            axios.get(`${baseUrl}/enroll-ticket/${studentId}/${sectionId}`)
+                .then((res) => {
+                    ticketExist = res.data.bool;
+                    if (!ticketExist) {
+                        const ticketFormData = new FormData();
+                        ticketFormData.append("student", studentId);
+                        ticketFormData.append("section", sectionId);
+                        ticketFormData.append("request", "ENROLL");
+                        ticketFormData.append("status", 2);
 
-                }
-            } else {
-                Swal.fire('error', 'Data has not been deleted. ');
-            }
-        })
+                        try {
+                            axios.post(`${baseUrl}/ticket/`, ticketFormData)
+                                .then((res) => console.log(res))
+                        } catch (e) {
+                            console.log(e)
+                        }
+                    } else {
+                        alert("You have already submitted the enroll request, please wait for advisor's approval!")
+                    }
+                })
+        } catch (e) {
+            console.log(e)
+        }
+
     }
+
     return (
         <div className="container mt-4">
             <div className="card">
@@ -75,8 +85,11 @@ function AdminCourseSections(){
                                     <td>{section.classSize}</td>
                                     <td>{section.location}</td>
                                     <td>
-                                        <Link to={'/edit-section/' + section.id} className="btn btn-info btn-sm me-2 text-white">Edit</Link>
-                                        <button onClick={() => handleDeleteClick(section.id)} className="btn btn-danger btn-sm">Delete</button>
+                                        {enrollStatus ?
+                                            "You have already enrolled" :
+                                            <button onClick={() => handleEnrollBtn(section.id)}
+                                                    className="btn btn-sm btn-success">Enroll</button>
+                                        }
                                     </td>
                                 </tr>
                             )}
@@ -91,4 +104,4 @@ function AdminCourseSections(){
     )
 }
 
-export default AdminCourseSections;
+export default StudentCourseSections;
