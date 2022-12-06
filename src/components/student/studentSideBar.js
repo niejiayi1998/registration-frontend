@@ -9,7 +9,6 @@ function StudentSidebar(){
                 <Link to="/" className="list-group-item list-group-item-action">Register Course</Link>
                 <Link to="/my-courses" className="list-group-item list-group-item-action">Current Course</Link>
                 <Link to="/student-edit-profile" className="list-group-item list-group-item-action">Profile Setting</Link>
-                <Link to="/user-login" className="list-group-item list-group-item-action">Logout</Link>
             </div>
         </div>
     )
