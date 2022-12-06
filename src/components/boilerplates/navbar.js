@@ -1,9 +1,13 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const Navbar = () => {
     const adminLoginStatus = localStorage.getItem("adminLoginStatus");
     const advisorLoginStatus = localStorage.getItem("advisorLoginStatus");
     const studentLoginStatus = localStorage.getItem("studentLoginStatus");
+
+    const {pathname} = useLocation();
+    const paths = pathname.split("/");
+    const active = paths[1];
 
     let currentUser = null;
     if (adminLoginStatus) {
@@ -27,24 +31,19 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/all-courses">Courses</Link>
+                            <Link className={`nav-link ${!active ? 'active' : ''}`} aria-current="page" to="/">Home</Link>
                         </li>
 
                         {
                             currentUser &&
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle text-capitalize" href="src/components/boilerplates/navbar#" role="button" data-bs-toggle="dropdown"
-                                   aria-expanded="false">
-                                    {currentUser}
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to={`/dashboard`}>Dashboard</Link></li>
-                                    <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
-                                </ul>
-                            </li>
+                            <>
+                                <li className="nav-item">
+                                    <Link className={`nav-link ${active === 'dashboard' ? 'active' : ''}`} to={`/dashboard`}>Dashboard</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/logout">Logout</Link>
+                                </li>
+                            </>
                         }
 
                         {

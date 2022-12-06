@@ -2,6 +2,7 @@ import {Link, useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import AddSection from "../addSection";
 
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 const currentTerm = 1;

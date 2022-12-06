@@ -86,7 +86,7 @@ function StudentCourseSections(){
                                     <td>{section.location}</td>
                                     <td>
                                         {enrollStatus ?
-                                            "You have already enrolled" :
+                                            "You have already enrolled in this course!" :
                                             <button onClick={() => handleEnrollBtn(section.id)}
                                                     className="btn btn-sm btn-success">Enroll</button>
                                         }
