@@ -8,7 +8,9 @@ const AddCourse = () => {
     const [departments, setDepartments] = useState([]);
     const [courseData, setCourseData] = useState({
         department: "",
+        title: "",
         name: "",
+        description:"",
         credit: "",
     })
 
@@ -34,7 +36,9 @@ const AddCourse = () => {
     const formSubmit = () => {
         const formData = new FormData();
         formData.append("department", courseData.department);
+        formData.append("title", courseData.title);
         formData.append("name", courseData.name);
+        formData.append("description", courseData.description);
         formData.append("credit", courseData.credit);
 
         try {
@@ -66,8 +70,16 @@ const AddCourse = () => {
                                 </select>
                             </div>
                             <div className="mb-3">
+                                <label htmlFor="title" className="form-label">Course Title</label>
+                                <input onChange={handleChange} name="title" type="text" className="form-control" id="title" />
+                            </div>
+                            <div className="mb-3">
                                 <label htmlFor="name" className="form-label">Name</label>
                                 <input onChange={handleChange} name="name" type="text" className="form-control" id="name" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="description" className="form-label">Course Description</label>
+                                <input onChange={handleChange} name="description" type="text" className="form-control" id="description" />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="credit" className="form-label">Credit</label>
