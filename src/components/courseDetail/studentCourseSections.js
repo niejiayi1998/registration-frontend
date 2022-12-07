@@ -46,7 +46,7 @@ function StudentCourseSections(){
 
                         try {
                             axios.post(`${baseUrl}/ticket/`, ticketFormData)
-                                .then((res) => console.log(res))
+                                .then((res) => {})
                         } catch (e) {
                             console.log(e)
                         }

@@ -30,9 +30,7 @@ const EditStudentProfile = () => {
         try{
             axios.put(`${baseUrl}/student/${studentId}/`, _formData)
                 .then((res)=> {
-                    console.log(res)
                     alert('Password has been successfully updated!')
-                    // window.location.href='/add-chapter/1';
                 });
         }catch (error){
             console.log(error);

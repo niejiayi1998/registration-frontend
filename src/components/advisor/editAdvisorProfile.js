@@ -28,9 +28,7 @@ const EditAdvisorProfile = () => {
         try{
             axios.put(`${baseUrl}/advisor/${advisorId}/`, _formData)
                 .then((res)=> {
-                    console.log(res)
                     alert('Password has been successfully updated!')
-                    // window.location.href='/add-chapter/1';
                 });
         }catch (error){
             console.log(error);

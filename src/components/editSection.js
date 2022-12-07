@@ -52,8 +52,7 @@ const EditSection = () => {
         try{
             axios.put(`${baseUrl}/section/${section_id}/`, _formData)
                 .then((res)=> {
-                    console.log(res)
-                    // window.location.href='/add-chapter/1';
+                    window.location.href=`/course/${sectionData.course}`;
                 });
         }catch (error){
             console.log(error);

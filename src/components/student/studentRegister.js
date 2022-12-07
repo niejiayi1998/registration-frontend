@@ -28,7 +28,7 @@ const StudentRegister = () => {
         studentFormData.append("full_name", studentData.full_name);
         studentFormData.append("email", studentData.email);
         studentFormData.append("password", studentData.password);
-        studentFormData.append("GPA", studentData.GPA);
+
         try {
             console.log(studentData)
             console.log(studentFormData)
@@ -79,10 +79,6 @@ const StudentRegister = () => {
                                 <input value={studentData.password} type="password" onChange={handleChange} name="password" className="form-control" id="password" />
                             </div>
 
-                            <div className="mb-3">
-                                <label htmlFor="GPA" className="form-label">GPA</label>
-                                <input value={studentData.GPA} type="number" step="0.01" min="0" max="4" onChange={handleChange} name="GPA" className="form-control" id="GPA" />
-                            </div>
 
                             <button onClick={submitForm} className="btn btn-primary">Register</button>
                         </div>

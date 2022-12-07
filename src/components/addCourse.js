@@ -44,8 +44,7 @@ const AddCourse = () => {
         try {
             axios.post(baseUrl + "/course/", formData)
                 .then((res) => {
-                    // console.log(res.data);
-                    window.location.href = '/add-course'
+                    window.location.href = '/'
                 })
         } catch (e) {
             console.log(e.message)
@@ -79,7 +78,7 @@ const AddCourse = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="description" className="form-label">Course Description</label>
-                                <input onChange={handleChange} name="description" type="text" className="form-control" id="description" />
+                                <textarea onChange={handleChange} name="description" type="text" className="form-control" id="description" />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="credit" className="form-label">Credit</label>

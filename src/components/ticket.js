@@ -127,7 +127,7 @@ const Ticket = () => {
                                                 <td>{t.section_name}</td>
                                                 <td>
                                                     <button onClick={() => handleApprove(t)} className="btn btn-success btn-sm me-2">Approve</button>
-                                                    <button onClick={handleDecline} className="btn btn-danger btn-sm">Decline</button>
+                                                    <button onClick={() => handleDecline(t)} className="btn btn-danger btn-sm">Decline</button>
                                                 </td>
                                             </tr>
                                         )
