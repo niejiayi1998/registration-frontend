@@ -72,7 +72,7 @@ function StudentCourseSections(){
                         <tr>
                             <th>Section Name</th>
                             <th>Instructor</th>
-                            <th>Class Size</th>
+                            <th>Current Enroll / Class Size</th>
                             <th>Location</th>
                             <th>Action</th>
                         </tr>
@@ -83,7 +83,7 @@ function StudentCourseSections(){
                                 <tr key={index}>
                                     <td>{section.name}</td>
                                     <td>{section.instructor}</td>
-                                    <td>{section.classSize}</td>
+                                    <td>{section.total_enrolled_students} / {section.classSize}</td>
                                     <td>{section.location}</td>
                                     <td>
                                         {enrollStatus ?

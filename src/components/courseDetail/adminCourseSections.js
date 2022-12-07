@@ -2,7 +2,6 @@ import {Link, useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import AddSection from "../addSection";
 
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 const currentTerm = 1;
@@ -59,7 +58,7 @@ function AdminCourseSections(){
                         <tr>
                             <th>Section Name</th>
                             <th>Instructor</th>
-                            <th>Class Size</th>
+                            <th>Current Enroll / Class Size</th>
                             <th>Location</th>
                             <th>Action</th>
                         </tr>
@@ -70,7 +69,7 @@ function AdminCourseSections(){
                                 <tr key={index}>
                                     <td>{section.name}</td>
                                     <td>{section.instructor}</td>
-                                    <td>{section.classSize}</td>
+                                    <td>{section.total_enrolled_students} / {section.classSize}</td>
                                     <td>{section.location}</td>
                                     <td>
                                         <Link to={'/edit-section/' + section.id} className="btn btn-info btn-sm me-2 text-white">Edit</Link>

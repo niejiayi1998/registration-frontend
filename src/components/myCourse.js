@@ -1,7 +1,5 @@
-
 import {useEffect, useState} from "react";
 import axios from "axios";
-import AdminSidebar from "./admin/adminSidebar";
 import StudentSidebar from "./student/studentSideBar";
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 
