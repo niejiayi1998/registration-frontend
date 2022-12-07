@@ -4,8 +4,10 @@ import axios from "axios";
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 
 const AdvisorRegister = () => {
+    const [departments, setDepartments] = useState([]);
     const [advisorData, setAdvisorData] = useState({
         full_name: "",
+        department: "",
         email: "",
         password: "",
         status: "",
@@ -13,6 +15,15 @@ const AdvisorRegister = () => {
 
     useEffect(() => {
         document.title='Advisor Register';
+
+        try {
+            axios.get(`${baseUrl}/department`)
+                .then((res) => {
+                    setDepartments(res.data);
+                })
+        } catch (e) {
+            console.log(e);
+        }
     }, []);
 
     const handleChange = (e) => {
@@ -25,16 +36,17 @@ const AdvisorRegister = () => {
     const submitForm = () => {
         const advisorFormData = new FormData();
         advisorFormData.append("full_name", advisorData.full_name);
+        advisorFormData.append("department", advisorData.department);
         advisorFormData.append("email", advisorData.email);
         advisorFormData.append("password", advisorData.password);
 
         try {
-            console.log(advisorData)
             axios.post(`${baseUrl}/advisor/`, advisorFormData)
                 .then((response) => {
                 setAdvisorData({
                     full_name: "",
                     email: "",
+                    department: "",
                     password: "",
                     status: "success"
                 })
@@ -55,6 +67,13 @@ const AdvisorRegister = () => {
                     <div className="card">
                         <h5 className="card-header">Advisor Register</h5>
                         <div className="card-body">
+                            <div className="mb-3">
+                                <label htmlFor="department" className="form-label">Department</label>
+                                <select onChange={handleChange} name="department" className="form-control" id="department">
+                                    <option key="0">Please select from the following department</option>
+                                    {departments.map((d, index) => <option key={index} value={d.id}>{d.name}</option>)}
+                                </select>
+                            </div>
 
                             <div className="mb-3">
                                 <label htmlFor="fullname" className="form-label">Full Name</label>

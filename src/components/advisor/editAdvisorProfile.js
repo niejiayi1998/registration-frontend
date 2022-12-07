@@ -8,6 +8,8 @@ const EditAdvisorProfile = () => {
     const [advisorData, setAdvisorData] = useState({
         full_name: '',
         email: '',
+        department_name: '',
+        department: '',
         password: '',
     });
     const advisorId = localStorage.getItem('advisorId');
@@ -23,6 +25,7 @@ const EditAdvisorProfile = () => {
         const _formData = new FormData();
         _formData.append('full_name', advisorData.full_name);
         _formData.append('email', advisorData.email);
+        _formData.append('department', advisorData.department);
         _formData.append('password', advisorData.password);
 
         try{
@@ -56,6 +59,12 @@ const EditAdvisorProfile = () => {
                     <div className="card">
                         <h5 className="card-header">Profile Setting</h5>
                         <div className="card-body">
+                            <div className="mb-3 row">
+                                <label htmlFor="department" className="col-sm-2 col-form-label">Department</label>
+                                <div className="col-sm-10">
+                                    <input type="text" name="department_name" value={advisorData.department_name} className="form-control" id="department" readOnly/>
+                                </div>
+                            </div>
                             <div className="mb-3 row">
                                 <label htmlFor="inputName" className="col-sm-2 col-form-label">Full Name</label>
                                 <div className="col-sm-10">
