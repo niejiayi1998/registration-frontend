@@ -57,7 +57,7 @@ const AddSection = () => {
             axios.post(baseUrl + "/section/", formData)
                 .then((res) => {
                     // console.log(res.data);
-                    window.location.href = '/add-section'
+                    window.location.href = `/course/${sectionData.course}`
                 })
         } catch (e) {
             console.log(e.message)
