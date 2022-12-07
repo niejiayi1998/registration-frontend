@@ -26,12 +26,14 @@ const AllStudents = () => {
                     <AdminSidebar />
                 </aside>
                 <section className="col-md-9">
-                <h3 className="mb-4">All Students</h3>
-                <ul className="list-group">
-                    {studentData && studentData.map((s, index) =>
-                        <Link to={`/student/${s.id}`} key={index} className="list-group-item">{s.full_name}</Link>
-                    )}
-                </ul>
+                    <div className="card">
+                        <h5 className="card-header">All students</h5>
+                        <ul className="list-group">
+                            {studentData && studentData.map((s, index) =>
+                                <Link to={`/student/${s.id}`} key={index} className="list-group-item">{s.full_name}</Link>
+                            )}
+                        </ul>
+                    </div>
                 </section>
             </div>
 

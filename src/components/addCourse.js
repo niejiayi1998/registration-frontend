@@ -59,7 +59,7 @@ const AddCourse = () => {
                 </aside>
                 <section className="col-md-9">
                     <div className="card">
-                        <h5 className="card-header">Add Courses</h5>
+                        <h5 className="card-header">Add Course</h5>
                         <div className="card-body">
                             <div className="mb-3">
                                 <label htmlFor="department" className="form-label">Department</label>

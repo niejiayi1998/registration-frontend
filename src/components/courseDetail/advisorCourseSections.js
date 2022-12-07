@@ -26,10 +26,10 @@ const AdvisorCourseSections = () => {
     return (
         <div className="container mt-4">
             <div className="card">
-                <div className="card-header">All Sections</div>
+                <h5 className="card-header">All Sections</h5>
                 {totalResult > 0 ?
                 <div className="card-body">
-                    <table className="table table-bordered">
+                    <table className="table text-center">
                         <thead>
                         <tr>
                             <th>Section Name</th>

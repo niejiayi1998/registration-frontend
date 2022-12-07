@@ -54,30 +54,32 @@ const AdminAllCourses = () => {
                 </aside>
                 <section className="col-md-9">
                     <div className="card">
-                        <div className="card-header">All Courses</div>
-                        <table className="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Course Title</th>
-                                <th>Course Name</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {courses.map((c, index)=> {
-                                return (
-                                    <tr key={index}>
-                                        <td>{c.title}</td>
-                                        <td>{c.name}</td>
-                                        <td>
-                                            <Link to={`/edit-course/${c.id}`} className="btn btn-primary btn-sm me-2">Edit</Link>
-                                            <button onClick={() => handleDeleteBtn(c.id)} className="btn btn-danger btn-sm">Delete</button>
-                                        </td>
+                        <h5 className="card-header">All Courses</h5>
+                        <div className="card-body">
+                            <table className="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Course Title</th>
+                                        <th>Course Name</th>
+                                        <th>Action</th>
                                     </tr>
+                                </thead>
+                                <tbody>
+                                {courses.map((c, index)=> {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{c.title}</td>
+                                            <td>{c.name}</td>
+                                            <td>
+                                                <Link to={`/edit-course/${c.id}`} className="btn btn-primary btn-sm me-2">Edit</Link>
+                                                <button onClick={() => handleDeleteBtn(c.id)} className="btn btn-danger btn-sm">Delete</button>
+                                            </td>
+                                        </tr>
+                                    )}
                                 )}
-                            )}
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </section>
             </div>

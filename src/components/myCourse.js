@@ -54,34 +54,34 @@ const MyCourse = () => {
                 <aside className="col-md-3">
                     <StudentSidebar />
                 </aside>
-                <div className='col-7'>
+                <div className='col-md-9'>
                     <div className="card">
-                        <div className="card-header">My Courses</div>
-                        <table className="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Course Name</th>
-                                <th>Instructor</th>
-                                <th>Section</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {courseData.map((courses, index)=> {
-                                return (
-                                    <tr>
-                                        <td>{courses.course}</td>
-                                        <td>{courses.instructor}</td>
-                                        <td>{courses.section_name}</td>
-                                        <td>
-                                            <button onClick={() => handleDropClick(courses.section, courses.student)} className="btn btn-danger btn-sm">Drop</button>
-                                        </td>
-                                    </tr>
+                        <h5 className="card-header">My Courses</h5>
+                        <div className="card-body mb-3">
+                            <table className="table text-center">
+                                <thead>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Instructor</th>
+                                    <th>Section</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {courseData.map((courses, index)=> {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{courses.course}</td>
+                                            <td>{courses.instructor}</td>
+                                            <td>{courses.section_name}</td>
+                                            <td>
+                                                <button onClick={() => handleDropClick(courses.section, courses.student)} className="btn btn-danger btn-sm">Drop</button>
+                                            </td>
+                                        </tr>
+                                    )}
                                 )}
-                            )}
-                            </tbody>
-                        </table>
-                        <div className="card-body">
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

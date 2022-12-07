@@ -30,8 +30,6 @@ const StudentRegister = () => {
         studentFormData.append("password", studentData.password);
 
         try {
-            console.log(studentData)
-            console.log(studentFormData)
             axios.post(`${baseUrl}/student/`, studentFormData)
                 .then((response) => {
                 setStudentData({

@@ -3,6 +3,7 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
+
 const currentTerm = 1;
 
 function StudentCourseSections(){
@@ -34,7 +35,7 @@ function StudentCourseSections(){
     const handleEnrollBtn = (sectionId) => {
         let ticketExist = false;
         try {
-            axios.get(`${baseUrl}/enroll-ticket/${studentId}/${sectionId}`)
+            axios.get(`${baseUrl}/enroll-ticket/${studentId}/${course_id}`)
                 .then((res) => {
                     ticketExist = res.data.bool;
                     if (!ticketExist) {
@@ -51,7 +52,7 @@ function StudentCourseSections(){
                             console.log(e)
                         }
                     } else {
-                        alert("You have already submitted the enroll request, please wait for advisor's approval!")
+                        alert("You have already submitted the enroll request to this course, please wait for advisor's approval!")
                     }
                 })
         } catch (e) {
@@ -63,10 +64,10 @@ function StudentCourseSections(){
     return (
         <div className="container mt-4">
             <div className="card">
-                <div className="card-header">All Sections</div>
+                <h5 className="card-header">All Sections</h5>
                 {totalResult > 0 ?
                 <div className="card-body">
-                    <table className="table table-bordered">
+                    <table className="table text-center">
                         <thead>
                         <tr>
                             <th>Section Name</th>

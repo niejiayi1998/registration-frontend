@@ -102,39 +102,37 @@ const Ticket = () => {
                 <section className="col-md-9">
                     <div className="card">
                         <h5 className="card-header">Pending Tickets</h5>
-                        <div className="card-body">
-                            <div className="mb-3">
-                                <table className="table text-center">
-                                    <thead>
-                                        <tr>
-                                            <th>Student Id</th>
-                                            <th>Student Name</th>
-                                            <th>Action</th>
-                                            <th>Course</th>
-                                            <th>Section</th>
-                                            <th>Decision</th>
-                                        </tr>
-                                    </thead>
+                        <div className="card-body mb-3">
+                            <table className="table text-center">
+                                <thead>
+                                <tr>
+                                    <th>Student Id</th>
+                                    <th>Student Name</th>
+                                    <th>Action</th>
+                                    <th>Course</th>
+                                    <th>Section</th>
+                                    <th>Decision</th>
+                                </tr>
+                                </thead>
 
-                                    <tbody>
-                                    {
-                                        tickets.map(t =>
-                                            <tr key={t.id}>
-                                                <td>{t.student}</td>
-                                                <td>{t.student_name}</td>
-                                                <td>{t.request}</td>
-                                                <td>{t.course_name}</td>
-                                                <td>{t.section_name}</td>
-                                                <td>
-                                                    <button onClick={() => handleApprove(t)} className="btn btn-success btn-sm me-2">Approve</button>
-                                                    <button onClick={() => handleDecline(t)} className="btn btn-danger btn-sm">Decline</button>
-                                                </td>
-                                            </tr>
-                                        )
-                                    }
-                                    </tbody>
-                                </table>
-                            </div>
+                                <tbody>
+                                {
+                                    tickets.map(t =>
+                                        <tr key={t.id}>
+                                            <td>{t.student}</td>
+                                            <td>{t.student_name}</td>
+                                            <td>{t.request}</td>
+                                            <td>{t.course_name}</td>
+                                            <td>{t.section_name}</td>
+                                            <td>
+                                                <button onClick={() => handleApprove(t)} className="btn btn-success btn-sm me-2">Approve</button>
+                                                <button onClick={() => handleDecline(t)} className="btn btn-danger btn-sm">Decline</button>
+                                            </td>
+                                        </tr>
+                                    )
+                                }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </section>
