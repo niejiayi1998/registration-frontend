@@ -1,9 +1,11 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const baseUrl = 'https://db-group2.wl.r.appspot.com/api'
 
 const AdvisorLogin = () => {
+    const navigate = useNavigate();
     useEffect(() => {
         document.title='Advisor Login';
     });
@@ -32,7 +34,7 @@ const AdvisorLogin = () => {
                     if (res.data.bool) {
                         localStorage.setItem("advisorLoginStatus", true);
                         localStorage.setItem("advisorId", res.data.advisor_id)
-                        window.location.href = "/dashboard"
+                        navigate('/dashboard')
                     } else {
                         setErrorMsg('Invalid Email Or Password!')
                     }
@@ -44,7 +46,7 @@ const AdvisorLogin = () => {
 
     const advisorLoginStatus = localStorage.getItem("advisorLoginStatus");
     if (advisorLoginStatus) {
-        window.location.href = "/dashboard"
+        navigate('/dashboard')
     }
 
     return (
