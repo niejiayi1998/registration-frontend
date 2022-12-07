@@ -37,9 +37,6 @@ function AdminCourseSections(){
                     axios.delete(baseUrl + '/section/' + section_id)
                         .then((res) => {
                             window.location.reload();
-                            // console.log(res);
-                            // settotalResult(res.data.length);
-                            // setchapterData(res.data);
                         });
                     Swal.fire('Success', 'Data has been deleted.');
                 } catch (error) {

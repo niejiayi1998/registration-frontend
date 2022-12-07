@@ -33,7 +33,7 @@ const EditCourse = () => {
             axios.put(`${baseUrl}/course/${course_id}/`, _formData)
                 .then((res)=> {
                     console.log(res)
-                    // window.location.href='/add-chapter/1';
+                    window.location.href=`/course/${course_id}`;
                 });
         }catch (error){
             console.log(error);
@@ -82,7 +82,7 @@ const EditCourse = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="description" className="form-label">Description</label>
-                                <input onChange={handleChange} value={courseData.description} name="description" type="text" className="form-control" id="description" />
+                                <textarea onChange={handleChange} value={courseData.description} name="description" className="form-control" id="description" rows="5"/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="credit" className="form-label">Credit</label>

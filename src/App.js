@@ -23,6 +23,7 @@ import EditAdvisorProfile from "./components/advisor/editAdvisorProfile";
 import EditStudentProfile from "./components/student/editStudentProfile";
 import AllStudents from "./components/allStudents";
 import StudentDetail from "./components/student/studentDetail";
+import AdminAllCourses from "./components/adminAllCourses";
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
               <Route path="/edit-course/:course_id" element={<EditCourse />} />
               <Route path="/add-section" element={<AddSection />} />
               <Route path="/edit-section/:section_id" element={<EditSection />} />
+              <Route path="/admin-all-courses" element={<AdminAllCourses />} />
 
               {/* Advisor dashboard route */}
               <Route path="/ticket" element={<Ticket />} />

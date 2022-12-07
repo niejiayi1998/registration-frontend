@@ -64,7 +64,7 @@ const AddCourse = () => {
                             <div className="mb-3">
                                 <label htmlFor="department" className="form-label">Department</label>
                                 <select onChange={handleChange} name="department" className="form-control" id="department">
-                                    <option key="0">Please select from the following courses</option>
+                                    <option key="0">Please select from the following department</option>
                                     {departments.map((d, index) => <option key={index} value={d.id}>{d.name}</option>)}
                                 </select>
                             </div>
